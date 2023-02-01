@@ -16,7 +16,7 @@ public class RMIServer {
             {
                 public String sayHello() throws RemoteException;
             }
-        // Implementa la clase servidor
+            // Implementa la clase servidor
             class ServerImpl extends UnicastRemoteObject implements RemoteServer
             {
                 public ServerImpl() throws RemoteException
@@ -28,9 +28,10 @@ public class RMIServer {
                     return "Hello, World!";
                 }
             }
-        // Crea un registro RMI
+            // Crea un registro RMI
+            //define el puerto en el que sera registrado
             Registry registry = LocateRegistry.createRegistry(1099);
-        // Publica el objeto remoto
+            // Publica el objeto remoto
             RemoteServer server = new ServerImpl();
             registry.rebind("HelloServer", server);
             System.out.println("Server ready");
