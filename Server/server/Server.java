@@ -38,11 +38,7 @@ public class Server
         catch (MalformedURLException e)
         {
             e.printStackTrace();
-        }
-        finally
-        {
-            return ack;
-        }
+        }   
+        return false;     
     }
-
 }

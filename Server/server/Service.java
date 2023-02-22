@@ -8,8 +8,8 @@ import java.rmi.server.UnicastRemoteObject;
 public class Service extends UnicastRemoteObject implements RMI {
 
     private static final long serialVersionUID = 1L;
-
-   Cliente actualCliente = new Cliente("Santiago", "1725", 50000);
+    //Usuario de prueba
+    Cliente actualCliente = new Cliente("Santiago", "1725", 50000);
 
     //Cliente actualCliente;
     Cliente clientesRegistrados[] = {actualCliente};
@@ -31,12 +31,9 @@ public class Service extends UnicastRemoteObject implements RMI {
         clientesRegistrados[1] = new Cliente(user,password,monto);
         return true;
     }
-
-
     @Override
     public boolean login(String nombreUsuario, String contraseña) throws RemoteException
     {
-
         for (int i = 0; i < clientesRegistrados.length; i++)
         {
             if(actualCliente.getUser().equals(nombreUsuario))
@@ -50,7 +47,6 @@ public class Service extends UnicastRemoteObject implements RMI {
         }
         return false;
     }
-
     @Override
     public boolean retDinero(int salidaDinero) throws RemoteException
     {
